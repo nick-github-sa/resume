@@ -14,16 +14,18 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            color: #555;
+            min-height: 100vh;
+            color: #444;
         }
         .container {
             background-color: white;
-            padding: 40px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             max-width: 800px;
+            width: 100%;
             text-align: center;
+            box-sizing: border-box;
         }
         .profile-image {
             width: 150px;
@@ -40,17 +42,18 @@
         h1 {
             margin: 10px 0;
             font-size: 2em;
-            color: #333;
+            color: #222;
             font-weight: 700;
         }
         .title {
-            color: #888;
+            color: #666;
             margin-bottom: 20px;
             font-weight: 400;
         }
         .content {
             text-align: left;
-            color: #555;
+            color: #444;
+            padding: 0 10px;
         }
         .content p {
             margin-bottom: 20px;
@@ -76,12 +79,27 @@
             color: #555;
             margin-top: 40px;
             font-weight: 300;
+            padding: 0 10px;
         }
         .quote-author {
             text-align: right;
             margin-top: 10px;
-            color: #888;
+            color: #777;
             font-weight: 300;
+            padding: 0 10px;
+        }
+        @media (max-width: 600px) {
+            .content, .quote, .quote-author {
+                text-align: center;
+                padding: 0;
+            }
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
         }
     </style>
 </head>
