@@ -3,52 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Page</title>
+    <title>Profile Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 0;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
             text-align: center;
+        }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+        }
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        h1 {
+            margin: 10px 0;
+            font-size: 2em;
+        }
+        .title {
+            color: #777;
+            margin-bottom: 20px;
         }
         .content {
-            background-color: white;
-            padding: 20px;
-            margin-top: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
         }
-        .footer {
+        .content p {
+            margin-bottom: 20px;
+        }
+        .download-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            color: #4CAF50;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .download-btn:hover {
             background-color: #4CAF50;
             color: white;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: 20px;
+        }
+        .quote {
+            font-style: italic;
+            color: #555;
+            margin-top: 40px;
+        }
+        .quote-author {
+            text-align: right;
+            margin-top: 10px;
+            color: #999;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>Welcome to My Website</h1>
+        <div class="profile-image">
+            <img src="profile.jpg" alt="Profile Image">
         </div>
+        <h1>Nick Hall</h1>
+        <div class="title">Cybersecurity Specialist | CISSP, CCNP, CDP</div>
         <div class="content">
-            <h2>Hello, World!</h2>
-            <p>Welcome to my new website. Here, you will find various resources and information about my services and interests. Feel free to explore and get in touch if you have any questions.</p>
+            <p>Experienced senior Cybersecurity Specialist adept at managing intricate IT environments and devising effective technical solutions for prominent industry leaders. Proficient in both on-premises and cloud hosted architectures, with a strong focus on DevSecOps. Expertise lies in establishing, implementing, and enhancing key information security objectives.</p>
+            <p>Demonstrated ability to design and oversee critical security programs, providing comprehensive operational supervision for incident management and remediation efforts. Recognized for fostering cross-functional collaboration across diverse teams and effectively communicating with stakeholders at all levels of an organization.</p>
+            <p>Detail-oriented self-starter with exceptional oral and written communication, analytical, organizational, and time management skills. Committed to ensuring the highest standards of cybersecurity while delivering optimal results.</p>
         </div>
-        <div class="footer">
-            <p>&copy; 2024 My Website. All rights reserved.</p>
+        <a href="#" class="download-btn">Download CV</a>
+        <div class="quote">
+            "As cybersecurity leaders, we have to create our message of influence because security is a culture and you need the business to take place and be part of that security culture."
         </div>
+        <div class="quote-author">- Britney Hommertzheim</div>
     </div>
 </body>
 </html>
