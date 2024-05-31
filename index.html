@@ -39,7 +39,7 @@
             height: 100%;
             object-fit: cover;
         }
-        h1 {
+        h1, h2 {
             margin: 10px 0;
             font-size: 2em;
             color: #222;
@@ -50,12 +50,12 @@
             margin-bottom: 20px;
             font-weight: 400;
         }
-        .content {
+        .content, .experience, .education, .resume-section {
             text-align: left;
             color: #444;
             padding: 0 10px;
         }
-        .content p {
+        .content p, .experience p, .education p, .resume-section p {
             margin-bottom: 20px;
             font-weight: 300;
         }
@@ -88,8 +88,41 @@
             font-weight: 300;
             padding: 0 10px;
         }
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #222;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .timeline {
+            margin: 20px 0;
+        }
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .timeline-item div {
+            flex: 1;
+        }
+        .timeline-date {
+            color: #1A89EF;
+            font-weight: 700;
+            margin-right: 20px;
+        }
+        .timeline-title {
+            font-weight: 700;
+        }
+        .timeline-subtitle {
+            color: #777;
+            margin-bottom: 10px;
+        }
+        .timeline-content {
+            color: #555;
+        }
         @media (max-width: 600px) {
-            .content, .quote, .quote-author {
+            .content, .quote, .quote-author, .experience, .education, .resume-section {
                 text-align: center;
                 padding: 0;
             }
@@ -97,7 +130,7 @@
                 width: 100px;
                 height: 100px;
             }
-            h1 {
+            h1, h2 {
                 font-size: 1.5em;
             }
         }
@@ -120,6 +153,56 @@
             "As cybersecurity leaders, we have to create our message of influence because security is a culture and you need the business to take place and be part of that security culture."
         </div>
         <div class="quote-author">- Britney Hommertzheim</div>
+        
+        <h2>Resume</h2>
+        <div class="experience">
+            <div class="section-title">Experience</div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Jan 2022 – Present</div>
+                    <div>
+                        <div class="timeline-title">Senior Security Engineer | CISSP</div>
+                        <div class="timeline-subtitle">Mitto AG</div>
+                        <div class="timeline-content">
+                            <p>As a seasoned Senior Security Engineer, I played a pivotal role in elevating Mitto's ISO 27001 compliance by spearheading the development of a robust vulnerability management program. Additionally, I took charge of leading the SOC2 audit reporting engagement with Deloitte, showcasing my expertise in regulatory compliance. Collaborating closely with the Executive team, I conducted a comprehensive gap analysis of security controls necessary to fortify the organization's defenses. Drawing upon my strategic acumen, I successfully secured the budget required and swiftly initiated the implementation of the essential controls. In line with my dedication to the principles of DevSecOps, I ensured that security considerations were seamlessly integrated throughout the entire development lifecycle, fostering a proactive and secure environment for the organization.</p>
+                            <p><strong>Project Highlights:</strong></p>
+                            <ul>
+                                <li>Implementing vulnerability management program</li>
+                                <li>ISO27001/2 and SOC2 programs</li>
+                                <li>Shift left DevSecOps strategy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="education">
+            <div class="section-title">Education</div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2000</div>
+                    <div>
+                        <div class="timeline-title">National N Diploma in Light Current Electrical</div>
+                        <div class="timeline-subtitle">Russell Road College</div>
+                        <div class="timeline-content">
+                            <p>N6 Mathematics N6 Electro Technics N6 Industrial Electronics N6 Digital Electronics</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">1996</div>
+                    <div>
+                        <div class="timeline-title">Matriculated</div>
+                        <div class="timeline-subtitle">Newton Technical High School</div>
+                        <div class="timeline-content">
+                            <p>Primary Subjects Electrical, Maths, Science, Technical Drawing Completed secondary school with a University exemption</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>
