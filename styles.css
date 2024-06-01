@@ -217,3 +217,31 @@ ul li {
         grid-template-columns: 1fr;
     }
 }
+.footer {
+    background-color: #f4f4f4;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 40px;
+    border-top: 1px solid #ddd;
+}
+
+.social-links {
+    margin-bottom: 10px;
+}
+
+.social-links a {
+    color: #444;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #1A89EF;
+}
+
+.copyright {
+    color: #777;
+    font-size: 0.9em;
+}
