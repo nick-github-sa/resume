@@ -10,7 +10,6 @@
 /* Existing styles */
 body {
     background-color: #f4f4f4;
-    color: #444;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -20,8 +19,6 @@ body {
 /* ... rest of your CSS */
 .container {
     background-color: white;
-    font-family: 'Lato', sans-serif;
-    color: #444;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
