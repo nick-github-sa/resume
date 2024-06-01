@@ -8,8 +8,6 @@ body {
     align-items: flex-start;
     min-height: 100vh;
     color: #444;
-    position: relative;
-    overflow: hidden;
 }
 .container {
     background-color: white;
@@ -21,12 +19,10 @@ body {
     text-align: left;
     box-sizing: border-box;
     margin: 20px;
-    position: relative;
-    z-index: 1;
 }
 .profile-image {
-    width: 275px;
-    height: 275px;
+    width: 320px;
+    height: 320px;
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto 20px;
@@ -45,6 +41,7 @@ h1 {
 }
 .title {
     color: #666;
+    font-size: 1em;
     margin-bottom: 20px;
     font-weight: 400;
     text-align: center;
@@ -92,12 +89,32 @@ h1 {
     padding: 0 10px;
 }
 .section-title {
-    font-size: 1.5em;
+    position: relative;
+    font-size: 2em;
     font-weight: 700;
     color: #222;
     margin-top: 40px;
     margin-bottom: 20px;
     text-align: left;
+    padding-bottom: 5px;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 50px;  /* Adjust width as needed */
+    background-color: #1A89EF;  /* First color */
+}
+.section-title::before {
+    content: '';
+    position: absolute;
+    left: 50px;  /* Adjust based on the width of the first color */
+    bottom: 0;
+    height: 3px;
+    width: calc(100% - 50px);  /* Adjust width based on the first color width */
+    background-color: #f4f4f4;  /* Second color */
 }
 .timeline {
     margin: 20px 0;
@@ -153,13 +170,37 @@ ul li {
     list-style-type: disc;
     margin-bottom: 10px;
 }
+.certificates-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.certificate-item {
+    display: flex;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+.certificate-item img {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+}
+.certificate-title {
+    font-size: 1em;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
 @media (max-width: 600px) {
     .content, .quote, .quote-author, .experience, .education, .resume-section {
         padding: 0;
     }
     .profile-image {
-        width: 150px;
-        height: 150px;
+        width: 100px;
+        height: 100px;
     }
     h1 {
         font-size: 1.5em;
@@ -171,5 +212,8 @@ ul li {
     }
     .timeline-item {
         padding-left: 10px;
+    }
+    .certificates-grid {
+        grid-template-columns: 1fr;
     }
 }
