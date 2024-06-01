@@ -246,6 +246,4 @@ ul li {
 .copyright {
     color: #777;
     font-size: 0.9em;
-    position: absolute;
-    right: 10%; /* Move 10% from the right border */
 }
