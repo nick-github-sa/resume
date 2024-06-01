@@ -1,22 +1,20 @@
-/* Apply the font family and color to all elements */
+/* Apply the font family to all elements */
 * {
     font-family: 'Lato', sans-serif;
-    color: #444; /* The same color as your content text */
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 /* Existing styles */
 body {
     background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
+    color: #444;
 }
 
-/* ... rest of your CSS */
 .container {
     background-color: white;
     padding: 20px;
@@ -60,6 +58,7 @@ h1 {
 }
 
 .content {
+    color: #444;
     padding: 0 100px;
 }
 
@@ -275,6 +274,7 @@ ul li {
 }
 
 .social-links a {
+    color: #444;
     text-decoration: none;
     margin: 0 10px;
     font-weight: 400;
