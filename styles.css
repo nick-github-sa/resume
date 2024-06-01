@@ -1,5 +1,10 @@
-body {
+/* Apply the font family to all elements */
+* {
     font-family: 'Lato', sans-serif;
+}
+
+/* Existing styles */
+body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
@@ -254,6 +259,7 @@ ul li {
 
 .footer {
     background-color: #f4f4f4;
+    font-size: 0.5em;
     padding: 10px 0;
     display: flex;
     justify-content: space-between;
@@ -282,6 +288,6 @@ ul li {
 
 .copyright {
     color: #777;
-    font-size: 0.9em;
+    font-size: 0.5em;
     margin-right: 10%;
 }
