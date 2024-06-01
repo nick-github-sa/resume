@@ -1,4 +1,4 @@
-/* Apply the font family and color to all elements */
+/* Apply the font family to all elements */
 * {
     font-family: 'Lato', sans-serif;
     color: #444;
@@ -14,11 +14,6 @@ body {
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
-}
-
-/* Add specific padding to content elements to avoid global padding issues */
-.content, .quote, .quote-author, .experience, .education, .resume-section {
-    padding: 0 100px;
 }
 
 /* ... rest of your CSS */
@@ -64,6 +59,11 @@ h1 {
     text-align: center;
 }
 
+.content {
+    color: #444;
+    padding: 0 100px;
+}
+
 .content p {
     margin-bottom: 20px;
     font-weight: 300;
@@ -95,6 +95,7 @@ h1 {
     color: #555;
     margin-top: 40px;
     font-weight: 300;
+    padding: 0 120px;
     text-align: center;
 }
 
@@ -277,7 +278,6 @@ ul li {
 
 .social-links a {
     color: #444;
-    font-size: 1em;
     text-decoration: none;
     margin: 0 10px;
     font-weight: 400;
@@ -292,4 +292,4 @@ ul li {
     color: #777;
     font-size: 1em;
     margin-right: 10%;
-} 
+}
