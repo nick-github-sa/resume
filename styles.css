@@ -220,13 +220,14 @@ ul li {
 .footer {
     background-color: #f4f4f4;
     padding: 10px 0;
-    text-align: center;
-    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     border-top: 1px solid #ddd;
 }
 
 .social-links {
-    margin-bottom: 10px;
+    display: flex;
 }
 
 .social-links a {
