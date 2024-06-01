@@ -216,6 +216,19 @@ ul li {
     .certificates-grid {
         grid-template-columns: 1fr;
     }
+    .footer {
+        background-color: #f4f4f4;
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #ddd;
+        margin-top: 20px; /* This adds a gap above the footer */
+        width: 100%; /* Ensure the footer takes the full width */
+        box-sizing: border-box; /* Include padding and border in the width */
+    }
+}
+
 .footer {
     background-color: #f4f4f4;
     padding: 10px 0;
@@ -224,11 +237,13 @@ ul li {
     align-items: center;
     border-top: 1px solid #ddd;
     margin-top: 20px; /* This adds a gap above the footer */
-    }
+    width: 100%; /* Ensure the footer takes the full width */
+    box-sizing: border-box; /* Include padding and border in the width */
+}
 
 .social-links {
     display: flex;
-    }
+}
 
 .social-links a {
     color: #444;
@@ -236,14 +251,15 @@ ul li {
     margin: 0 10px;
     font-weight: 400;
     transition: color 0.3s;
-    }
+}
 
 .social-links a:hover {
     color: #1A89EF;
-    }
+}
 
 .copyright {
     color: #777;
     font-size: 0.9em;
-    }
+    position: relative; /* Make sure it stays within the container */
+    right: 10%; /* Move 10% from the right border */
 }
