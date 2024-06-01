@@ -29,8 +29,8 @@
             margin: 20px;
         }
         .profile-image {
-            width: 275px;
-            height: 275px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
             overflow: hidden;
             margin: 0 auto 20px;
@@ -96,21 +96,32 @@
             padding: 0 10px;
         }
         .section-title {
-            font-size: 2em;
+            position: relative;
+            font-size: 1.5em;
             font-weight: 700;
             color: #222;
             margin-top: 40px;
             margin-bottom: 20px;
             text-align: left;
-            background-color: #f8f8f8;
-            padding: 10px;
-            border-top: 1px solid #AAAAAA;  /* Darker top line */
-            border-bottom: 1px solid #AAAAAA;  /* Darker bottom line */
-            width: 100%;  /* Extend to the edge */
-            margin-left: 0;  /* Adjust left margin */
-            margin-right: 0;  /* Adjust right margin */
-            border-radius: 0;  /* Remove border radius */
-            box-sizing: border-box;
+            padding-bottom: 5px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 50px;  /* Adjust width as needed */
+            background-color: #1A89EF;  /* First color */
+        }
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 50px;  /* Adjust based on the width of the first color */
+            bottom: 0;
+            height: 3px;
+            width: calc(100% - 50px);  /* Adjust width based on the first color width */
+            background-color: #f4f4f4;  /* Second color */
         }
         .timeline {
             margin: 20px 0;
