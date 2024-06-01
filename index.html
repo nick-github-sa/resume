@@ -16,6 +16,33 @@
             align-items: flex-start;
             min-height: 100vh;
             color: #444;
+            position: relative;
+            overflow: hidden;
+        }
+        .background-circle {
+            position: absolute;
+            background-color: rgba(200, 200, 200, 0.1);
+            border-radius: 50%;
+            z-index: -1;
+        }
+        .circle1 {
+            width: 300px;
+            height: 300px;
+            top: 100px;
+            left: -150px;
+        }
+        .circle2 {
+            width: 500px;
+            height: 500px;
+            top: 400px;
+            right: -250px;
+        }
+        .circle3 {
+            width: 400px;
+            height: 400px;
+            bottom: -200px;
+            left: 50%;
+            transform: translateX(-50%);
         }
         .container {
             background-color: white;
@@ -27,10 +54,12 @@
             text-align: left;
             box-sizing: border-box;
             margin: 20px;
+            position: relative;
+            z-index: 1;
         }
         .profile-image {
-            width: 275px;
-            height: 275px;
+            width: 225px; /* increased by 50% */
+            height: 225px; /* increased by 50% */
             border-radius: 50%;
             overflow: hidden;
             margin: 0 auto 20px;
@@ -55,7 +84,7 @@
         }
         .content {
             color: #444;
-            padding: 0 100px;
+            padding: 0 10px;
         }
         .content p {
             margin-bottom: 20px;
@@ -78,14 +107,14 @@
             width: fit-content;
         }
         .download-btn:hover {
-            background-color: #136BB8;
+            background-color: #1A89EF;
         }
         .quote {
             font-style: italic;
             color: #555;
             margin-top: 40px;
             font-weight: 300;
-            padding: 0 120px;
+            padding: 0 10px;
             text-align: center;
         }
         .quote-author {
@@ -101,7 +130,7 @@
             color: #222;
             margin-top: 40px;
             margin-bottom: 20px;
-            text-align: left;
+            text-align: center;
         }
         .timeline {
             margin: 20px 0;
@@ -162,8 +191,8 @@
                 padding: 0;
             }
             .profile-image {
-                width: 100px;
-                height: 100px;
+                width: 150px;
+                height: 150px;
             }
             h1 {
                 font-size: 1.5em;
@@ -180,12 +209,15 @@
     </style>
 </head>
 <body>
+    <div class="background-circle circle1"></div>
+    <div class="background-circle circle2"></div>
+    <div class="background-circle circle3"></div>
     <div class="container">
         <div class="profile-image">
             <img src="profile.jpg" alt="Profile Image">
         </div>
         <h1>Nick Hall</h1>
-        <div class="title">Cybersecurity Specialist | CISSP, CCNP, C_DP</div>
+        <div class="title">Cybersecurity Specialist | CISSP, CCNP, CDP</div>
         <div class="content">
             <p>Experienced senior Cybersecurity Specialist adept at managing intricate IT environments and devising effective technical solutions for prominent industry leaders. Proficient in both on-premises and cloud hosted architectures, with a strong focus on DevSecOps. Expertise lies in establishing, implementing, and enhancing key information security objectives.</p>
             <p>Demonstrated ability to design and oversee critical security programs, providing comprehensive operational supervision for incident management and remediation efforts. Recognized for fostering cross-functional collaboration across diverse teams and effectively communicating with stakeholders at all levels of an organization.</p>
