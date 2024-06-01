@@ -11,31 +11,6 @@ body {
     position: relative;
     overflow: hidden;
 }
-.background-circle {
-    position: absolute;
-    background-color: rgba(200, 200, 200, 0.1);
-    border-radius: 50%;
-    z-index: -1;
-}
-.circle1 {
-    width: 300px;
-    height: 300px;
-    top: 100px;
-    left: -150px;
-}
-.circle2 {
-    width: 500px;
-    height: 500px;
-    top: 400px;
-    right: -250px;
-}
-.circle3 {
-    width: 400px;
-    height: 400px;
-    bottom: -200px;
-    left: 50%;
-    transform: translateX(-50%);
-}
 .container {
     background-color: white;
     padding: 20px;
