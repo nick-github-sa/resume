@@ -9,6 +9,7 @@ body {
     min-height: 100vh;
     color: #444;
 }
+
 .container {
     background-color: white;
     padding: 20px;
@@ -20,6 +21,7 @@ body {
     box-sizing: border-box;
     margin: 20px;
 }
+
 .profile-image {
     width: 320px;
     height: 320px;
@@ -27,11 +29,13 @@ body {
     overflow: hidden;
     margin: 0 auto 20px;
 }
+
 .profile-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 h1 {
     margin: 10px 0;
     font-size: 2em;
@@ -39,6 +43,7 @@ h1 {
     font-weight: 700;
     text-align: center;
 }
+
 .title {
     color: #666;
     font-size: 1em;
@@ -46,14 +51,17 @@ h1 {
     font-weight: 400;
     text-align: center;
 }
+
 .content {
     color: #444;
     padding: 0 100px;
 }
+
 .content p {
     margin-bottom: 20px;
     font-weight: 300;
 }
+
 .download-btn {
     display: inline-block;
     padding: 10px 20px;
@@ -70,9 +78,11 @@ h1 {
     display: block;
     width: fit-content;
 }
+
 .download-btn:hover {
     background-color: #136BB8;
 }
+
 .quote {
     font-style: italic;
     color: #555;
@@ -81,6 +91,7 @@ h1 {
     padding: 0 120px;
     text-align: center;
 }
+
 .quote-author {
     text-align: right;
     margin-top: 10px;
@@ -88,6 +99,7 @@ h1 {
     font-weight: 300;
     padding: 0 10px;
 }
+
 .section-title {
     position: relative;
     font-size: 2em;
@@ -98,30 +110,34 @@ h1 {
     text-align: left;
     padding-bottom: 5px;
 }
+
 .section-title::after {
     content: '';
     position: absolute;
     left: 0;
     bottom: 0;
     height: 3px;
-    width: 50px;  /* Adjust width as needed */
-    background-color: #1A89EF;  /* First color */
+    width: 50px;
+    background-color: #1A89EF;
 }
+
 .section-title::before {
     content: '';
     position: absolute;
-    left: 50px;  /* Adjust based on the width of the first color */
+    left: 50px;
     bottom: 0;
     height: 3px;
-    width: calc(100% - 50px);  /* Adjust width based on the first color width */
-    background-color: #f4f4f4;  /* Second color */
+    width: calc(100% - 50px);
+    background-color: #f4f4f4;
 }
+
 .timeline {
     margin: 20px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .timeline-item {
     display: flex;
     align-items: flex-start;
@@ -132,6 +148,7 @@ h1 {
     width: 100%;
     max-width: 700px;
 }
+
 .timeline-item::before {
     content: '';
     width: 12px;
@@ -142,9 +159,11 @@ h1 {
     left: -7px;
     top: 5px;
 }
+
 .timeline-item div {
     flex: 1;
 }
+
 .timeline-date {
     color: #1A89EF;
     font-weight: 700;
@@ -152,29 +171,36 @@ h1 {
     width: auto;
     flex-shrink: 0;
 }
+
 .timeline-title {
     font-weight: 700;
 }
+
 .timeline-subtitle {
     color: #777;
     margin-bottom: 10px;
 }
+
 .timeline-content {
     color: #555;
 }
+
 ul {
     padding-left: 20px;
     margin: 0;
 }
+
 ul li {
     list-style-type: disc;
     margin-bottom: 10px;
 }
+
 .certificates-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
+
 .certificate-item {
     display: flex;
     background-color: #fff;
@@ -184,48 +210,45 @@ ul li {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     align-items: center;
 }
+
 .certificate-item img {
     width: 80px;
     height: 80px;
     margin-right: 20px;
 }
+
 .certificate-title {
     font-size: 1em;
     font-weight: 700;
     margin-bottom: 5px;
 }
+
 @media (max-width: 600px) {
     .content, .quote, .quote-author, .experience, .education, .resume-section {
         padding: 0;
     }
+
     .profile-image {
         width: 100px;
         height: 100px;
     }
+
     h1 {
         font-size: 1.5em;
     }
+
     .timeline-date {
         width: auto;
         font-size: 0.9em;
         margin-right: 5px;
     }
+
     .timeline-item {
         padding-left: 10px;
     }
+
     .certificates-grid {
         grid-template-columns: 1fr;
-    }
-    .footer {
-        background-color: #f4f4f4;
-        padding: 10px 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-top: 1px solid #ddd;
-        margin-top: 20px; /* This adds a gap above the footer */
-        width: 100%; /* Ensure the footer takes the full width */
-        box-sizing: border-box; /* Include padding and border in the width */
     }
 }
 
@@ -236,9 +259,9 @@ ul li {
     justify-content: space-between;
     align-items: center;
     border-top: 1px solid #ddd;
-    margin-top: 20px; /* This adds a gap above the footer */
-    width: 100%; /* Ensure the footer takes the full width */
-    box-sizing: border-box; /* Include padding and border in the width */
+    margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .social-links {
@@ -260,6 +283,5 @@ ul li {
 .copyright {
     color: #777;
     font-size: 0.9em;
-    position: relative; /* Make sure it stays within the container */
-    right: 10%; /* Move 10% from the right border */
+    margin-right: 10%;
 }
