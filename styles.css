@@ -158,7 +158,7 @@ h1 {
     align-items: flex-start;
     margin-bottom: 20px;
     border-left: 2px solid #1A89EF;
-    padding-left: 10px; /* Decrease padding here */
+    padding-left: 10px;
     position: relative;
     width: 100%;
     max-width: 700px;
@@ -182,7 +182,7 @@ h1 {
 .timeline-date {
     color: #1A89EF;
     font-weight: 700;
-    margin-right: 5px; /* Decrease margin here */
+    margin-right: 5px;
     width: auto;
     flex-shrink: 0;
 }
@@ -190,7 +190,7 @@ h1 {
 .timeline-title,
 .timeline-subtitle,
 .timeline-content {
-    margin-left: 10px; /* Add margin to the content to make the spacing consistent */
+    margin-left: 10px;
 }
 
 ul {
@@ -233,33 +233,83 @@ ul li {
     margin-bottom: 5px;
 }
 
+/* Responsive adjustments */
 @media (max-width: 600px) {
-    .content, .quote, .quote-author, .experience, .education, .resume-section {
-        padding: 0;
+    .container {
+        padding: 10px;
+        margin: 10px;
     }
 
     .profile-image {
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 10px;
     }
 
     h1 {
         font-size: 1.5em;
     }
 
-    .timeline-date {
-        width: auto;
+    .title {
         font-size: 0.9em;
-        margin-right: 5px;
+    }
+
+    .content {
+        padding: 0 20px;
+    }
+
+    .download-btn {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+
+    .quote {
+        padding: 0 30px;
+        font-size: 0.9em;
+    }
+
+    .quote-author {
+        font-size: 0.8em;
+    }
+
+    .section-title {
+        font-size: 1.5em;
+        margin-top: 20px;
+        margin-bottom: 10px;
     }
 
     .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
         padding-left: 10px;
+    }
+
+    .timeline-date {
+        margin-bottom: 5px;
+    }
+
+    .timeline-title,
+    .timeline-subtitle,
+    .timeline-content {
+        margin-left: 0;
     }
 
     .certificates-grid {
         flex-direction: column;
+        gap: 10px;
+    }
+
+    .certificate-item {
+        width: 100%;
+        flex-direction: column;
         align-items: center;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .certificate-item img {
+        margin-bottom: 10px;
+        margin-right: 0;
     }
 }
 
