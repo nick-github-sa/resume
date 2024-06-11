@@ -49,6 +49,14 @@ h1 {
     text-align: center;
 }
 
+h3 {
+    margin: 10px 0;
+    font-size: 1em;
+    color: #222;
+    font-weight: 700;
+    text-align: center;
+}
+
 .title {
     color: #666;
     font-size: 1em;
