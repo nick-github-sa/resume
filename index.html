@@ -10,6 +10,7 @@
         :root {
             --primary: #0a66c2;
             --primary-light: #e8f1fa;
+            --primary-dark: #0a4d92;
             --secondary: #2e3440;
             --secondary-light: #4c566a;
             --text: #2e3440;
@@ -19,6 +20,7 @@
             --card-bg: #f7f9fc;
             --border: #e5e9f2;
             --success: #3cb371;
+            --success-light: #e6f7ef;
             --grey-dark: #3a3a3a;
             --grey-medium: #505050;
             --grey-light: #707070;
@@ -518,50 +520,160 @@
             font-size: 0.95rem;
         }
 
-        /* Courses */
-        .courses-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
-            gap: var(--spacing-md);
+        /* Professional Development Styles */
+        .pd-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
 
-        .course-item {
-            padding: var(--spacing-md);
+        .pd-year {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .pd-year-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--grey-dark);
+            margin-bottom: 1rem;
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
             background-color: var(--card-bg);
+            border-radius: 2rem;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            z-index: 2;
+        }
+
+        .pd-year-line {
+            position: absolute;
+            top: 1.5rem;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: var(--border);
+            z-index: 1;
+        }
+
+        .pd-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .pd-card {
+            background-color: var(--background);
             border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            position: relative;
             transition: var(--transition);
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid var(--border);
         }
 
-        .course-item:hover {
-            background-color: var(--primary-light);
+        .pd-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
         }
 
-        .course-item i {
-            color: var(--grey-dark);
-            margin-right: var(--spacing-md);
-            font-size: 1.2rem;
+        .pd-card.certified {
+            border-left: 4px solid var(--success);
         }
 
-        .course-details {
+        .pd-card-inner {
+            display: flex;
+            flex-direction: column;
+            padding: 1.25rem;
             flex: 1;
+            position: relative;
         }
 
-        .course-date {
-            font-weight: 500;
-            color: var(--grey-dark);
-            margin-right: var(--spacing-sm);
+        .pd-card-icon {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            transition: var(--transition);
         }
 
-        .course-name {
-            color: var(--text);
-        }
-
-        .course-cert {
+        .pd-card.certified .pd-card-icon {
+            background-color: var(--success-light);
             color: var(--success);
-            margin-left: var(--spacing-xs);
+        }
+
+        .pd-card-date {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            background-color: var(--card-bg);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-light);
             font-weight: 500;
+        }
+
+        .pd-card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+            padding-right: 4rem; /* Space for date */
+        }
+
+        .pd-card-provider {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pd-card-provider i {
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+
+        .pd-card-certified {
+            margin-top: auto;
+            background-color: var(--success-light);
+            color: var(--success);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            align-self: flex-start;
+        }
+
+        .pd-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .pd-card-tag {
+            background-color: var(--card-bg);
+            padding: 0.2rem 0.6rem;
+            border-radius: 0.75rem;
+            font-size: 0.75rem;
+            color: var(--text-light);
         }
 
         /* Footer */
@@ -696,8 +808,12 @@
                 grid-template-columns: 1fr;
             }
 
-            .courses-list {
+            .pd-cards {
                 grid-template-columns: 1fr;
+            }
+
+            .pd-year-title {
+                font-size: 1.2rem;
             }
 
             .quote {
@@ -889,7 +1005,7 @@
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-header">
-                            <div class="timeline-date">May 2018 – January 2022</div>
+                            <div class="timeline-date">May 2018 – Present</div>
                             <div class="timeline-title">Advisory board member</div>
                             <div class="timeline-subtitle">Centre for Research in Information and Cyber Security (CRICS) and the School of ICT, Nelson Mandela University</div>
                         </div>
@@ -1030,49 +1146,419 @@
                 <h2 class="section-title">
                     <i class="fas fa-graduation-cap"></i> Professional Development
                 </h2>
-                <div class="courses-list">
-                    <div class="course-item">
-                        <i class="fas fa-award"></i>
-                        <div class="course-details">
-                            <span class="course-date">Aug 2024</span>
-                            <span class="course-name">Prepare for the Certified Kubernetes Administrators Certification</span>
-                            <span class="course-cert">(Certified)</span>
+                
+                <div class="pd-container">
+                    <!-- 2024 -->
+                    <div class="pd-year">
+                        <h3 class="pd-year-title">2024</h3>
+                        <div class="pd-year-line"></div>
+                        <div class="pd-cards">
+                            <div class="pd-card certified">
+                                <div class="pd-card-inner">
+                                    <div class="pd-card-icon">
+                                        <i class="fas fa-award"></i>
+                                    </div>
+                                    <div class="pd-card-date">August 2024</div>
+                                    <h4 class="pd-card-title">Prepare for the Certified Kubernetes Administrators Certification</h4>
+                                    <div class="pd-card-provider">
+                                        <i class="fas fa-university"></i> Udemy
+                                    </div>
+                                    <div class="pd-card-certified">
+                                        <i class="fas fa-check-circle"></i> Certified
+                                    </div>
+                                    <div class="pd-card-tags">
+                                        <span class="pd-card-tag">Kubernetes</span>
+                                        <span class="pd-card-tag">Administration</span>
+                                        <span class="pd-card-tag">Cloud</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="course-item">
-                        <i class="fas fa-award"></i>
-                        <div class="course-details">
-                            <span class="course-date">Dec 2023</span>
-                            <span class="course-name">Practical DevSecOps - Certified DevSecOps Professional</span>
-                            <span class="course-cert">(Certified)</span>
+                    
+                    <!-- 2023 -->
+                    <div class="pd-year">
+                        <h3 class="pd-year-title">2023</h3>
+                        <div class="pd-year-line"></div>
+                        <div class="pd-cards">
+                            <div class="pd-card certified">
+                                <div class="pd-card-inner">
+                                    <div class="pd-card-icon">
+                                        <i class="fas fa-award"></i>
+                                    </div>
+                                    <div class="pd-card-date">December 2023</div>
+                                    <h4 class="pd-card-title">Certified DevSecOps Professional</h4>
+                                    <div class="pd-card-provider">
+                                        <i class="fas fa-university"></i> Practical DevSecOps
+                                    </div>
+                                    <div class="pd-card-certified">
+                                        <i class="fas fa-check-circle"></i> Certified
+                                    </div>
+                                    <div class="pd-card-tags">
+                                        <span class="pd-card-tag">DevSecOps</span>
+                                        <span class="pd-card-tag">Security</span>
+                                        <span class="pd-card-tag">CI/CD</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pd-card">
+                                <div class="pd-card-inner">
+                                    <div class="pd-card-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div class="pd-card-date">July 2023</div>
+                                    <h4 class="pd-card-title">DevSecOps: Integrating Security into DevOps</h4>
+                                    <div class="pd-card-provider">
+                                        <i class="fas fa-university"></i> (ISC)²
+                                    </div>
+                                    <div class="pd-card-tags">
+                                        <span class="pd-card-tag">DevSecOps</span>
+                                        <span class="pd-card-tag">Security</span>
+                                        <span class="pd-card-tag">Integration</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pd-card">
+                                <div class="pd-card-inner">
+                                    <div class="pd-card-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div class="pd-card-date">July 2023</div>
+                                    <h4 class="pd-card-title">Git Going Fast: One Hour Git Crash Course</h4>
+                                    <div class="pd-card-provider">
+                                        <i class="fas fa-university"></i> Udemy
+                                    </div>
+                                    <div class="pd-card-tags">
+                                        <span class="pd-card-tag">Git</span>
+                                        <span class="pd-card-tag">Version Control</span>
+                                        <span class="pd-card-tag">Development</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pd-card">
+                                <div class="pd-card-inner">
+                                    <div class="pd-card-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div class="pd-card-date">June 2023</div>
+                                    <h4 class="pd-card-title">Docker & Kubernetes: The Practical Guide [2023 Edition]</h4>
+                                    <div class="pd-card-provider">
+                                        <i class="fas fa-university"></i> Udemy
+                                    </div>
+                                    <div class="pd-card-tags">
+                                        <span class="pd-card-tag">Docker</span>
+                                        <span class="pd-card-tag">Kubernetes</span>
+                                        <span class="pd-card-tag">Containers</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pd-card">
+                                <div class="pd-card-inner">
+                                    <div class="pd-card-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div class="pd-card-date">March 2023</div>
+                                    <h4 class="pd-card-title">ISO/IEC 27701:2019 - Privacy Information Management System</h4>
+                                    <div class="pd-card-provider">
+                                        <i class="fas fa-university"></i> Udemy
+                                    </div>
+                                    <div class="pd-card-tags">
+                                        <span class="pd-card-tag">ISO</span>
+                                        <span class="pd-card-tag">Privacy</span>
+                                        <span class="pd-card-tag">Compliance</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="course-item">
-                        <i class="fas fa-book"></i>
-                        <div class="course-details">
-                            <span class="course-date">July 2023</span>
-                            <span class="course-name">(ISC)² - DevSecOps: Integrating Security into DevOps</span>
+                    
+                    <!-- 2022 -->
+                    <div class="pd-year">
+                        <h3 class="pd-year-title">2022</h3>
+                        <div class="pd-year-line"></div>
+                        <div class="pd-cards">
+                            <div class="pd-card">
+                                <div class="pd-card-inner">
+                                    <div class="pd-card-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div class="pd-card-date">April 2022</div>
+                                    <h4 class="pd-card-title">Lacework Fundamentals for Security Practitioners</h4>
+                                    <div class="pd-card-provider">
+                                        <i class="fas fa-university"></i> Lacework
+                                    </div>
+                                    <div class="pd-card-tags">
+                                        <span class="pd-card-tag">Security</span>
+                                        <span class="pd-card-tag">Cloud</span>
+                                        <span class="pd-card-tag">Monitoring</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pd-card">
+                                <div class="pd-card-inner">
+                                    <div class="pd-card-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div class="pd-card-date">February 2022</div>
+                                    <h4 class="pd-card-title">Python for Absolute Beginners | Python Beginner to Pro 2021</h4>
+                                    <div class="pd-card-provider">
+                                        <i class="fas fa-university"></i> Udemy
+                                    </div>
+                                    <div class="pd-card-tags">
+                                        <span class="pd-card-tag">Python</span>
+                                        <span class="pd-card-tag">Programming</span>
+                                        <span class="pd-card-tag">Development</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="course-item">
-                        <i class="fas fa-book"></i>
-                        <div class="course-details">
-                            <span class="course-date">July 2023</span>
-                            <span class="course-name">Git Going Fast: One Hour Git Crash Course</span>
+                    
+                    <!-- 2021 -->
+                    <div class="pd-year">
+                        <h3 class="pd-year-title">2021</h3>
+                        <div class="pd-year-line"></div>
+                        <div class="pd-cards">
+                            <div class="pd-card">
+                                <div class="pd-card-inner">
+                                    <div class="pd-card-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div class="pd-card-date">September 2021</div>
+                                    <h4 class="pd-card-title">CISO's Guide to Success</h4>
+                                    <div class="pd-card-provider">
+                                        <i class="fas fa-university"></i> (ISC)² Professional Development Institute
+                                    </div>
+                                    <div class="pd-card-tags">
+                                        <span class="pd-card-tag">Leadership</span>
+                                        <span class="pd-card-tag">Security</span>
+                                        <span class="pd-card-tag">Management</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pd-card">
+                                <div class="pd-card-inner">
+                                    <div class="pd-card-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div class="pd-card-date">September 2021</div>
+                                    <h4 class="pd-card-title">Introduction to Kubernetes and Intersight Kubernetes Services</h4>
+                                    <div class="pd-card-provider">
+                                        <i class="fas fa-university"></i> Cisco
+                                    </div>
+                                    <div class="pd-card-tags">
+                                        <span class="pd-card-tag">Kubernetes</span>
+                                        <span class="pd-card-tag">Cisco</span>
+                                        <span class="pd-card-tag">Cloud</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pd-card">
+                                <div class="pd-card-inner">
+                                    <div class="pd-card-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div class="pd-card-date">July 2021</div>
+                                    <h4 class="pd-card-title">Web Security and the OWASP Top 10</h4>
+                                    <div class="pd-card-provider">
+                                        <i class="fas fa-university"></i> Troy Hunt
+                                    </div>
+                                    <div class="pd-card-tags">
+                                        <span class="pd-card-tag">OWASP</span>
+                                        <span class="pd-card-tag">Web Security</span>
+                                        <span class="pd-card-tag">Vulnerabilities</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pd-card certified">
+                                <div class="pd-card-inner">
+                                    <div class="pd-card-icon">
+                                        <i class="fas fa-award"></i>
+                                    </div>
+                                    <div class="pd-card-date">April 2021</div>
+                                    <h4 class="pd-card-title">Microsoft Certified: AZ-900 Azure Fundamentals</h4>
+                                    <div class="pd-card-provider">
+                                        <i class="fas fa-university"></i> Microsoft
+                                    </div>
+                                    <div class="pd-card-certified">
+                                        <i class="fas fa-check-circle"></i> Certified
+                                    </div>
+                                    <div class="pd-card-tags">
+                                        <span class="pd-card-tag">Azure</span>
+                                        <span class="pd-card-tag">Cloud</span>
+                                        <span class="pd-card-tag">Microsoft</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pd-card">
+                                <div class="pd-card-inner">
+                                    <div class="pd-card-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div class="pd-card-date">March 2021</div>
+                                    <h4 class="pd-card-title">Self Study Azure Fundamentals</h4>
+                                    <div class="pd-card-provider">
+                                        <i class="fas fa-university"></i> Microsoft
+                                    </div>
+                                    <div class="pd-card-tags">
+                                        <span class="pd-card-tag">Azure</span>
+                                        <span class="pd-card-tag">Cloud</span>
+                                        <span class="pd-card-tag">Fundamentals</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pd-card">
+                                <div class="pd-card-inner">
+                                    <div class="pd-card-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div class="pd-card-date">February 2021</div>
+                                    <h4 class="pd-card-title">Creating a Comprehensive Security Fabric v6.4</h4>
+                                    <div class="pd-card-provider">
+                                        <i class="fas fa-university"></i> Fortinet
+                                    </div>
+                                    <div class="pd-card-tags">
+                                        <span class="pd-card-tag">Security</span>
+                                        <span class="pd-card-tag">Fortinet</span>
+                                        <span class="pd-card-tag">Firewall</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pd-card">
+                                <div class="pd-card-inner">
+                                    <div class="pd-card-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div class="pd-card-date">January 2021</div>
+                                    <h4 class="pd-card-title">FortiSIEM - Advanced Analytics 5.2</h4>
+                                    <div class="pd-card-provider">
+                                        <i class="fas fa-university"></i> Fortinet
+                                    </div>
+                                    <div class="pd-card-tags">
+                                        <span class="pd-card-tag">SIEM</span>
+                                        <span class="pd-card-tag">Analytics</span>
+                                        <span class="pd-card-tag">Monitoring</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="course-item">
-                        <i class="fas fa-book"></i>
-                        <div class="course-details">
-                            <span class="course-date">June 2023</span>
-                            <span class="course-name">Docker & Kubernetes: The Practical Guide [2023 Edition]</span>
+                    
+                    <!-- 2020 -->
+                    <div class="pd-year">
+                        <h3 class="pd-year-title">2020</h3>
+                        <div class="pd-year-line"></div>
+                        <div class="pd-cards">
+                            <div class="pd-card">
+                                <div class="pd-card-inner">
+                                    <div class="pd-card-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div class="pd-card-date">December 2020</div>
+                                    <h4 class="pd-card-title">Communicating with the C-Suite</h4>
+                                    <div class="pd-card-provider">
+                                        <i class="fas fa-university"></i> Professional Development
+                                    </div>
+                                    <div class="pd-card-tags">
+                                        <span class="pd-card-tag">Communication</span>
+                                        <span class="pd-card-tag">Leadership</span>
+                                        <span class="pd-card-tag">Management</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pd-card">
+                                <div class="pd-card-inner">
+                                    <div class="pd-card-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div class="pd-card-date">May 2020</div>
+                                    <h4 class="pd-card-title">Securing Containers at the Speed of DevOps</h4>
+                                    <div class="pd-card-provider">
+                                        <i class="fas fa-university"></i> Professional Development
+                                    </div>
+                                    <div class="pd-card-tags">
+                                        <span class="pd-card-tag">Containers</span>
+                                        <span class="pd-card-tag">DevOps</span>
+                                        <span class="pd-card-tag">Security</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pd-card">
+                                <div class="pd-card-inner">
+                                    <div class="pd-card-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div class="pd-card-date">March 2020</div>
+                                    <h4 class="pd-card-title">Introduction to the NIST Cybersecurity Framework</h4>
+                                    <div class="pd-card-provider">
+                                        <i class="fas fa-university"></i> Professional Development
+                                    </div>
+                                    <div class="pd-card-tags">
+                                        <span class="pd-card-tag">NIST</span>
+                                        <span class="pd-card-tag">Framework</span>
+                                        <span class="pd-card-tag">Compliance</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="course-item">
-                        <i class="fas fa-book"></i>
-                        <div class="course-details">
-                            <span class="course-date">March 2023</span>
-                            <span class="course-name">ISO/IEC 27701:2019 - Privacy Information Management System</span>
+                    
+                    <!-- 2019 -->
+                    <div class="pd-year">
+                        <h3 class="pd-year-title">2019</h3>
+                        <div class="pd-year-line"></div>
+                        <div class="pd-cards">
+                            <div class="pd-card certified">
+                                <div class="pd-card-inner">
+                                    <div class="pd-card-icon">
+                                        <i class="fas fa-award"></i>
+                                    </div>
+                                    <div class="pd-card-date">Aug-Dec 2019</div>
+                                    <h4 class="pd-card-title">Certified Information Systems Security Professional</h4>
+                                    <div class="pd-card-provider">
+                                        <i class="fas fa-university"></i> (ISC)²
+                                    </div>
+                                    <div class="pd-card-certified">
+                                        <i class="fas fa-check-circle"></i> Certified
+                                    </div>
+                                    <div class="pd-card-tags">
+                                        <span class="pd-card-tag">CISSP</span>
+                                        <span class="pd-card-tag">Security</span>
+                                        <span class="pd-card-tag">Certification</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="pd-card">
+                                <div class="pd-card-inner">
+                                    <div class="pd-card-icon">
+                                        <i class="fas fa-book"></i>
+                                    </div>
+                                    <div class="pd-card-date">November 2019</div>
+                                    <h4 class="pd-card-title">Risk Assessment and Management</h4>
+                                    <div class="pd-card-provider">
+                                        <i class="fas fa-university"></i> Professional Development
+                                    </div>
+                                    <div class="pd-card-tags">
+                                        <span class="pd-card-tag">Risk</span>
+                                        <span class="pd-card-tag">Management</span>
+                                        <span class="pd-card-tag">Assessment</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
