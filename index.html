@@ -1,1668 +1,355 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nick Hall - Cybersecurity Specialist</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-    <style>
-        :root {
-            --primary: #0a66c2;
-            --primary-light: #e8f1fa;
-            --primary-dark: #0a4d92;
-            --secondary: #2e3440;
-            --secondary-light: #4c566a;
-            --text: #2e3440;
-            --text-light: #4c566a;
-            --text-lighter: #9197a3;
-            --background: #ffffff;
-            --card-bg: #f7f9fc;
-            --border: #e5e9f2;
-            --success: #3cb371;
-            --success-light: #e6f7ef;
-            --grey-dark: #3a3a3a;
-            --grey-medium: #505050;
-            --grey-light: #707070;
-            --spacing-xs: 0.25rem;
-            --spacing-sm: 0.5rem;
-            --spacing-md: 1rem;
-            --spacing-lg: 1.5rem;
-            --spacing-xl: 2rem;
-            --spacing-xxl: 3rem;
-            --border-radius: 0.5rem;
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.05);
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            background-color: #f5f7fa;
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        /* Header */
-        .header {
-            background-color: var(--secondary);
-            color: white;
-            padding: var(--spacing-lg) 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSI0MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMCAwaDEyMDB2ODAwSDB6Ii8+PHBhdGggZD0iTTEyMDAgMHY4MDBoMjAzLjc4NEwwIDUwMS4wOTlWMGgxMjAweiIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA3KSIvPjwvZz48L3N2Zz4=') no-repeat;
-            background-size: cover;
-            opacity: 0.1;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--spacing-lg);
-            position: relative;
-        }
-
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: var(--spacing-xxl);
-            position: relative;
-        }
-
-        .header-text {
-            flex: 1;
-            min-width: 300px;
-            max-width: 65%;
-        }
-
-        .header-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 5px solid rgba(255, 255, 255, 0.2);
-            box-shadow: var(--shadow-lg);
-            transition: var(--transition);
-            position: absolute;
-            right: 10%;
-        }
-
-        .header-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .header-image:hover {
-            transform: scale(1.03);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .name {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: var(--spacing-xs);
-            letter-spacing: -0.5px;
-        }
-
-        .title {
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-bottom: var(--spacing-md);
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .header-summary {
-            font-size: 1rem;
-            font-weight: 400;
-            margin-bottom: var(--spacing-lg);
-            max-width: 600px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .header-buttons {
-            display: flex;
-            gap: var(--spacing-md);
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 500;
-            transition: var(--transition);
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-            outline: none;
-        }
-
-        .btn-primary {
-            background-color: white;
-            color: var(--grey-dark);
-        }
-
-        .btn-primary:hover {
-            background-color: rgba(255, 255, 255, 0.9);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-        }
-
-        .btn-outline:hover {
-            border-color: white;
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
-        }
-
-        /* Main content */
-        .main-content {
-            padding: var(--spacing-xxl) 0;
-        }
-
-        .quote-section {
-            text-align: center;
-            padding: var(--spacing-xl) 0;
-            margin-bottom: var(--spacing-xxl);
-            position: relative;
-        }
-
-        .quote {
-            font-size: 1.00rem;
-            font-style: italic;
-            color: var(--text);
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            padding: 0 var(--spacing-xl);
-        }
-
-        .quote::before, .quote::after {
-            content: '"';
-            font-size: 4rem;
-            color: var(--primary-light);
-            position: absolute;
-            line-height: 1;
-        }
-
-        .quote::before {
-            top: -20px;
-            left: 0;
-        }
-
-        .quote::after {
-            bottom: -50px;
-            right: 0;
-            transform: rotate(180deg);
-        }
-
-        .quote-author {
-            margin-top: var(--spacing-md);
-            color: var(--text-light);
-            font-weight: 500;
-        }
-
-        /* Sections */
-        .section {
-            margin-bottom: var(--spacing-xxl);
-        }
-
-        .section-title {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: var(--spacing-lg);
-            color: var(--secondary);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-        }
-
-        .section-title i {
-            color: var(--grey-dark);
-        }
-
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background-color: var(--border);
-            margin-left: var(--spacing-md);
-        }
-
-        /* Cards */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: var(--spacing-lg);
-        }
-
-        .card {
-            background-color: var(--background);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-lg);
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-            border: 1px solid var(--border);
-            height: 100%;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-light);
-        }
-
-        .experience-card {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card-header {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .card-icon {
-            font-size: 1.5rem;
-            color: var(--grey-dark);
-            margin-right: var(--spacing-md);
-            background-color: #f0f0f0;
-            height: 3rem;
-            width: 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            flex-shrink: 0;
-        }
-
-        .card-title-group {
-            flex: 1;
-        }
-
-        .card-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .card-subtitle {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            font-weight: 500;
-        }
-
-        .card-date {
-            font-size: 0.85rem;
-            color: var(--text-lighter);
-            font-weight: 500;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .card-content {
-            margin-top: var(--spacing-sm);
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        .card-content p {
-            margin-bottom: var(--spacing-md);
-        }
-
-        .card-content strong {
-            color: var(--text);
-            font-weight: 600;
-        }
-
-        .card-content ul {
-            padding-left: var(--spacing-lg);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .card-content li {
-            margin-bottom: var(--spacing-sm);
-        }
-
-        /* Skills */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: var(--spacing-lg);
-        }
-
-        .skill-card {
-            padding: var(--spacing-lg);
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-sm);
-            height: 100%;
-        }
-
-        .skill-title {
-            font-weight: 600;
-            margin-bottom: var(--spacing-md);
-            color: var(--text);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-        }
-        
-        .skill-title i {
-            color: var(--grey-dark);
-        }
-
-        .skill-list {
-            padding-left: var(--spacing-lg);
-        }
-
-        .skill-list li {
-            margin-bottom: var(--spacing-sm);
-            color: var(--text-light);
-        }
-
-        /* Certificates */
-        .cert-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: var(--spacing-lg);
-        }
-
-        .cert-card {
-            background-color: var(--background);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-md);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: var(--transition);
-            border: 1px solid var(--border);
-            height: 100%;
-        }
-
-        .cert-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-light);
-        }
-
-        .cert-header {
-            padding: var(--spacing-md);
-            display: flex;
-            align-items: center;
-            background-color: var(--card-bg);
-        }
-
-        .cert-icon {
-            width: 60px;
-            height: 60px;
-            margin-right: var(--spacing-md);
-            object-fit: contain;
-        }
-
-        .cert-content {
-            padding: var(--spacing-md);
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .cert-name {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: var(--spacing-xs);
-            color: var(--text);
-        }
-
-        .cert-info {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .cert-date {
-            color: var(--text-lighter);
-            font-size: 0.85rem;
-            margin-top: auto;
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 7px;
-            top: 0;
-            height: 100%;
-            width: 2px;
-            background-color: var(--border);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: var(--spacing-xl);
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2rem;
-            top: 4px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background-color: var(--grey-dark);
-            z-index: 1;
-        }
-
-        .timeline-header {
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .timeline-date {
-            color: var(--grey-dark);
-            font-weight: 500;
-            font-size: 0.9rem;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .timeline-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .timeline-subtitle {
-            font-size: 0.95rem;
-            color: var(--text-light);
-        }
-
-        .timeline-content {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        /* Professional Development Styles */
-        .pd-container {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .pd-year {
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .pd-year-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--grey-dark);
-            margin-bottom: 1rem;
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            background-color: var(--card-bg);
-            border-radius: 2rem;
-            box-shadow: var(--shadow-sm);
-            position: relative;
-            z-index: 2;
-        }
-
-        .pd-year-line {
-            position: absolute;
-            top: 1.5rem;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background-color: var(--border);
-            z-index: 1;
-        }
-
-        .pd-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 1.25rem;
-        }
-
-        .pd-card {
-            background-color: var(--background);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-md);
-            overflow: hidden;
-            position: relative;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            border: 1px solid var(--border);
-        }
-
-        .pd-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-light);
-        }
-
-        .pd-card.certified {
-            border-left: 4px solid var(--success);
-        }
-
-        .pd-card-inner {
-            display: flex;
-            flex-direction: column;
-            padding: 1.25rem;
-            flex: 1;
-            position: relative;
-        }
-
-        .pd-card-icon {
-            background-color: var(--primary-light);
-            color: var(--primary);
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            transition: var(--transition);
-        }
-
-        .pd-card.certified .pd-card-icon {
-            background-color: var(--success-light);
-            color: var(--success);
-        }
-
-        .pd-card-date {
-            position: absolute;
-            top: 1.25rem;
-            right: 1.25rem;
-            background-color: var(--card-bg);
-            padding: 0.25rem 0.75rem;
-            border-radius: 1rem;
-            font-size: 0.8rem;
-            color: var(--text-light);
-            font-weight: 500;
-        }
-
-        .pd-card-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
-            padding-right: 4rem; /* Space for date */
-        }
-
-        .pd-card-provider {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .pd-card-provider i {
-            color: var(--primary);
-            font-size: 0.8rem;
-        }
-
-        .pd-card-certified {
-            margin-top: auto;
-            background-color: var(--success-light);
-            color: var(--success);
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 0.25rem 0.75rem;
-            border-radius: 1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            align-self: flex-start;
-        }
-
-        .pd-card-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.75rem;
-        }
-
-        .pd-card-tag {
-            background-color: var(--card-bg);
-            padding: 0.2rem 0.6rem;
-            border-radius: 0.75rem;
-            font-size: 0.75rem;
-            color: var(--text-light);
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--secondary);
-            color: white;
-            padding: var(--spacing-xxl) 0;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: var(--spacing-xl);
-        }
-
-        .footer-info {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .footer-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: var(--spacing-md);
-            color: white;
-        }
-
-        .footer-text {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: var(--spacing-lg);
-            max-width: 400px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: var(--spacing-md);
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            background-color: var(--grey-dark);
-            transform: translateY(-3px);
-        }
-
-        .footer-nav {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .footer-nav-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: var(--spacing-md);
-            color: white;
-        }
-
-        .footer-nav-links {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-sm);
-        }
-
-        .footer-nav-link {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
-        }
-
-        .footer-nav-link:hover {
-            color: white;
-            transform: translateX(3px);
-        }
-
-        .footer-bottom {
-            margin-top: var(--spacing-xl);
-            padding-top: var(--spacing-lg);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: var(--spacing-md);
-        }
-
-        .copyright {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-        }
-
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column-reverse;
-                text-align: center;
-                gap: var(--spacing-lg);
-            }
-            
-            .header-image {
-                position: static;
-                margin: 0 auto;
-            }
-
-            .header-text {
-                max-width: 100%;
-            }
-
-            .header-buttons {
-                justify-content: center;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .cards, .skills-container, .cert-container {
-                grid-template-columns: 1fr;
-            }
-
-            .pd-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .pd-year-title {
-                font-size: 1.2rem;
-            }
-
-            .quote {
-                font-size: 1.1rem;
-                padding: 0 var(--spacing-lg);
-            }
-
-            .footer-content {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .name {
-                font-size: 2rem;
-            }
-
-            .title {
-                font-size: 1rem;
-            }
-
-            .header-image {
-                width: 150px;
-                height: 150px;
-            }
-
-            .section-title {
-                font-size: 1.3rem;
-            }
-
-            .container {
-                padding: 0 var(--spacing-md);
-            }
-
-            .card {
-                padding: var(--spacing-md);
-            }
-
-            .header-buttons {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .btn {
-                width: 100%;
-            }
-        }
-    </style>
+    <meta name="description" content="Nick Hall, Head of Security at Mitto AG. Hands-on CISO-track leadership across secure AI adoption, security strategy, governance, DevSecOps, cloud security, privacy and security engineering.">
+    <title>Nick Hall - Head of Security</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="header-text">
-                    <h1 class="name">Nick Hall</h1>
-                    <div class="title">Cybersecurity Specialist - CISSP, CKA, CDP, CCNP</div>
-                    <p class="header-summary">
-                        Strategic Cybersecurity Leader with 15+ years driving enterprise security transformations. Proven success implementing DevSecOps methodologies and cloud-native security architectures for Fortune 500 companies. Expert in translating complex security requirements into measurable business advantages.
-                    </p>
-                    <div class="header-buttons">
-                        <a href="Nick-Hall-CV.pdf" class="btn btn-primary">
-                            <i class="fas fa-download"></i> Download CV
-                        </a>
-                        <a href="#contact" class="btn btn-outline">
-                            <i class="fas fa-envelope"></i> Contact Me
-                        </a>
-                    </div>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container hero">
+            <div class="hero-copy">
+                <p class="eyebrow">Head of Security, Mitto AG</p>
+                <h1>Nick Hall</h1>
+                <p class="headline">Hands-on CISO-track security leadership for organisations that need strategy, governance and technical depth in the same conversation.</p>
+                <p class="summary">Head of Security with 20+ years' experience across security engineering, DevSecOps, cloud security, privacy and governance. Key in introducing artificial intelligence securely into the enterprise environment, including DevOps workflows, while leading ISO 27001, ISO 27701 and SOC 2 Type II security initiatives.</p>
+                <div class="hero-actions" aria-label="Primary actions">
+                    <a class="button primary" href="Nick-Hall-CV.pdf">Download CV</a>
+                    <a class="button secondary" href="https://www.linkedin.com/in/nichall" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
                 </div>
-                <div class="header-image">
-                    <img src="profile.jpg" alt="Nick Hall">
+            </div>
+            <div class="hero-profile" aria-label="Profile image and credentials">
+                <div class="portrait-frame">
+                    <img src="profile.jpg" alt="Professional headshot of Nick Hall" width="569" height="567">
+                </div>
+                <div class="credential-stack" aria-label="Key certifications">
+                    <span>CISSP</span>
+                    <span>CKA</span>
+                    <span>CDP</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            <!-- Experience Section -->
-            <section class="section" id="experience">
-                <h2 class="section-title">
-                    <i class="fas fa-briefcase"></i> Professional Experience
-                </h2>
-                <div class="cards">
-                    <div class="card experience-card">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <div class="card-title-group">
-                                <h3 class="card-title">Senior Security Engineer</h3>
-                                <div class="card-subtitle">Mitto AG</div>
-                                <div class="card-date">Jan 2022 – Present</div>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <p>As a strategic Senior Security Engineer, I architected and led Mitto's comprehensive security compliance program, achieving ISO 27001, ISO 27701, and SOC2 Type II certifications/reports with zero critical findings. I orchestrated end-to-end security transformation by pioneering a multi-layered DevSecOps approach that reduced deployment vulnerabilities while accelerating release cycles. Developed and implemented an innovative vulnerability management platform integrating Kubernetes Trivy Operator deployments with proprietary EPSS (Exploit Prediction Scoring System) and KEV (Known Exploited Vulnerabilities) analytics for real-time threat prioritization.</p>
-                            <p><strong>Project Highlights:</strong></p>
-                            <ul>
-                                <li>Designed and implemented full-spectrum vulnerability management ecosystem with CI/CD pipeline integration and executive-level reporting dashboards</li>
-                                <li>Led cross-functional teams through ISO 27001, ISO 27701, and SOC2 Type II compliance initiatives, establishing mature GRC frameworks that survived rigorous audits</li>
-                                <li>Engineered containerized security solutions with Kubernetes operators that automated scanning across development, testing and production environments</li>
-                                <li>Developed Python-based EPSS and KEV analysis tools that reduced critical vulnerability response times from 9 days to under 24 hours</li>
-                                <li>Established shift-left security practices that embedded automated security controls at every stage of the SDLC</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="card experience-card">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-sitemap"></i>
-                            </div>
-                            <div class="card-title-group">
-                                <h3 class="card-title">Security Solutions Architect</h3>
-                                <div class="card-subtitle">Dimension Data/NTT</div>
-                                <div class="card-date">May 2018 – Dec 2021</div>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <p>As Technical Security Solutions Specialist at Dimension Data, I spearheaded enterprise-level security transformations for clients across multiple sectors. Architected and implemented comprehensive OT/IT security convergence solutions for manufacturing environments, delivering segmentation across production facilities. Led SD-WAN deployments spanning multiple countries, designing resilient architectures that reduced security incidents by 64% while cutting operational costs. Orchestrated complex cloud migration initiatives, establishing secure-by-design frameworks that enabled seamless transition of critical workloads with continuous compliance monitoring.</p>
-                            <p><strong>Project Highlights:</strong></p>
-                            <ul>
-                                <li>Designed and implemented industrial firewall ecosystems for critical infrastructure clients, integrating Purdue Model security principles with next-generation threat detection capabilities</li>
-                                <li>Architected global SD-WAN security frameworks for multinational enterprises, creating standardized security policies across locations while maintaining local compliance requirements</li>
-                                <li>Developed reference architecture for secure cloud migrations, incorporating automated compliance controls, CSPM tools, and IAM frameworks that maintained compliance with ISO 27001, PCI-DSS, and SOC2</li>
-                                <li>Established security control matrices that bridged IT/OT environments, enabling clients to achieve regulatory compliance while maintaining operational uptime</li>
-                                <li>Led security workshops and governance sessions with C-suite stakeholders, translating complex security architectures into business value propositions</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="card experience-card">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-lock"></i>
-                            </div>
-                            <div class="card-title-group">
-                                <h3 class="card-title">Security Engineer L3</h3>
-                                <div class="card-subtitle">Dimension Data</div>
-                                <div class="card-date">January 2013 – May 2018</div>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <p>As Security Engineering Team Lead within Dimension Data's MSSP division, I managed comprehensive security operations for enterprise clients across financial, healthcare, and manufacturing sectors. Oversaw enterprise-wide PKI infrastructure for multiple organizations, implementing multi-tier hierarchical designs that achieved 99.999% availability while meeting stringent compliance requirements. Orchestrated security for 100+ network security devices including next-generation firewalls, WAFs, proxies, and IPS systems across globally distributed environments. Led high-profile incident response teams during critical breach scenarios, successfully containing advanced persistent threats.</p>
-                            <p><strong>Work Highlights:</strong></p>
-                            <ul>
-                                <li>Lead technical teams of 5+ engineers, establishing mentorship and technical advancement that improved team professionalism and moral</li>
-                                <li>Orchestrated comprehensive disaster recovery testing for mission-critical environments, achieving 100% recovery success rate while reducing RTO/RPO by 60%</li>
-                                <li>Led remediation of high-severity security incidents involving nation-state actors, coordinating with vendors and implementing countermeasures that prevented data exfiltration</li>
-                                <li>Designed and implemented cloud migration security frameworks enabling zero-downtime transitions while maintaining continuous security monitoring</li>
-                                <li>Established automated security configuration management for heterogeneous environments, reducing security drift by 85% and enabling continuous compliance verification</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="card experience-card">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-network-wired"></i>
-                            </div>
-                            <div class="card-title-group">
-                                <h3 class="card-title">Network Engineer</h3>
-                                <div class="card-subtitle">The McGraw-Hill Companies</div>
-                                <div class="card-date">July 2004 – December 2012</div>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <p>As a certified Network Engineer, I served as the primary technical resource for McGraw-Hill's EMEA networking infrastructure, traveling extensively to European satellite offices to provide hands-on support and implementation expertise. Orchestrated a critical infrastructure overhaul of Cisco Catalyst Chassis switches at the European Head Office, coordinating with business units to ensure zero operational disruption during the migration. Managed all aspects of network infrastructure including data center operations, WAN optimization, and telephony systems, establishing the foundation for my subsequent cybersecurity career path.</p>
-                            <p><strong>Work Highlights:</strong></p>
-                            <ul>
-                                <li>Led enterprise-wide deployment and optimization of routing protocols (EIGRP, OSPF, BGP) across multiple international locations</li>
-                                <li>Designed and implemented high-availability data center switching infrastructure using Cisco Nexus technologies</li>
-                                <li>Executed major infrastructure refresh of core Catalyst Chassis switches at European headquarters with minimal downtime</li>
-                                <li>Managed technical support for 12+ European office locations, providing on-site expertise for complex networking challenges</li>
-                                <li>Pioneered virtualized infrastructure deployments in data center environments, creating a modern platform for business applications</li>
-                            </ul>
-                        </div>
-                    </div>
+    <main id="main">
+        <section class="impact-band" aria-labelledby="impact-title">
+            <div class="container">
+                <div class="section-heading compact">
+                    <p class="eyebrow">Selected impact</p>
+                    <h2 id="impact-title">Evidence of security leadership</h2>
                 </div>
-            </section>
-
-            <!-- Memberships Section -->
-            <section class="section" id="memberships">
-                <h2 class="section-title">
-                    <i class="fas fa-users"></i> Professional Memberships
-                </h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-header">
-                            <div class="timeline-date">May 2018 – January 2022</div>
-                            <div class="timeline-title">Advisory board member</div>
-                            <div class="timeline-subtitle">Centre for Research in Information and Cyber Security (CRICS) and the School of ICT, Nelson Mandela University</div>
-                        </div>
-                        <div class="timeline-content">
-                            <p>Inducted as an advisory board member of the Centre for Research in Information and Cyber Security at the Nelson Mandela Bay University, guiding and mentoring the next generation of Cybersecurity professionals</p>
-                        </div>
-                    </div>
+                <div class="impact-grid">
+                    <article class="impact-item">
+                        <strong>Secure enterprise AI adoption</strong>
+                        <span>Key in introducing artificial intelligence securely into the enterprise environment, including DevOps workflows.</span>
+                    </article>
+                    <article class="impact-item">
+                        <strong>ISO 27001, ISO 27701 and SOC 2 Type II</strong>
+                        <span>Led security initiatives supporting certification and reporting outcomes with zero critical findings.</span>
+                    </article>
+                    <article class="impact-item">
+                        <strong>9 days to under 24 hours</strong>
+                        <span>Reduced critical vulnerability response time using EPSS and KEV-based prioritisation.</span>
+                    </article>
+                    <article class="impact-item">
+                        <strong>DevSecOps and cloud-native security</strong>
+                        <span>Built vulnerability management capability across CI/CD, Kubernetes and production environments.</span>
+                    </article>
+                    <article class="impact-item">
+                        <strong>Enterprise and industrial architecture</strong>
+                        <span>Designed security architectures across cloud, SD-WAN and OT/IT environments.</span>
+                    </article>
+                    <article class="impact-item">
+                        <strong>Security team leadership</strong>
+                        <span>Led and mentored technical security teams of 5+ engineers.</span>
+                    </article>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Skills Section -->
-            <section class="section" id="skills">
-                <h2 class="section-title">
-                    <i class="fas fa-tools"></i> Skills & Expertise
-                </h2>
-                <div class="skills-container">
-                    <div class="skill-card">
-                        <h3 class="skill-title">
-                            <i class="fas fa-shield-alt"></i> Security Expertise
-                        </h3>
-                        <ul class="skill-list">
-                            <li>DevOps and DevSecOps Security</li>
-                            <li>Planning, researching, and designing security architectures</li>
-                            <li>Vulnerability and penetration testing assessments</li>
-                            <li>ISO 27001, NIST CSF, PCI DSS, CIS and SOC2</li>
-                            <li>Purdue Model and ISA/IEC 62443</li>
-                        </ul>
-                    </div>
-                    <div class="skill-card">
-                        <h3 class="skill-title">
-                            <i class="fas fa-laptop-code"></i> Technical Skills
-                        </h3>
-                        <ul class="skill-list">
-                            <li>Multi-Vendor firewalls and proxies</li>
-                            <li>Identity Management</li>
-                            <li>Public Key Infrastructure</li>
-                            <li>Web Application Firewalls</li>
-                            <li>Vulnerability Scanning</li>
-                            <li>Python (Automation, Security Tools)</li>
-                            <li>Secure Coding Practices</li>
-                            <li>Network Security Tools (e.g., Wireshark, tcpdump)</li>
-                        </ul>
-                    </div>
-                    <div class="skill-card">
-                        <h3 class="skill-title">
-                            <i class="fas fa-cloud"></i> Cloud & Modern Tech
-                        </h3>
-                        <ul class="skill-list">
-                            <li>Cloud Architecture (Azure)</li>
-                            <li>CI/CD (Azure DevOps)</li>
-                            <li>SCA</li>
-                            <li>Kubernetes & Docker</li>
-                            <li>GIT</li>
-                            <li>Terraform</li>
-                            <li>SIEM (Splunk, FortiSIEM)</li>
-                        </ul>
-                    </div>
-                    <div class="skill-card">
-                        <h3 class="skill-title">
-                            <i class="fas fa-users-cog"></i> Management
-                        </h3>
-                        <ul class="skill-list">
-                            <li>Team lead and mentor for security teams</li>
-                            <li>Preparing and presenting cost estimates and timelines</li>
-                            <li>Proof of concept to full deployment lifecycle</li>
-                            <li>Client relations and stakeholder management</li>
+        <section class="section certifications" aria-labelledby="certifications-title">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Credentials</p>
+                    <h2 id="certifications-title">Certifications that support leadership and technical credibility</h2>
+                </div>
+                <div class="cert-grid">
+                    <article class="cert-card featured">
+                        <img src="cissp2.png" alt="Certified Information Systems Security Professional badge" width="225" height="225">
+                        <div>
+                            <h3>CISSP</h3>
+                            <p>Certified Information Systems Security Professional</p>
+                            <span>01 March 2020</span>
+                        </div>
+                    </article>
+                    <article class="cert-card featured">
+                        <img src="CKA.png" alt="Certified Kubernetes Administrator badge" width="227" height="222">
+                        <div>
+                            <h3>CKA</h3>
+                            <p>Certified Kubernetes Administrator</p>
+                            <span>16 November 2024</span>
+                        </div>
+                    </article>
+                    <article class="cert-card featured">
+                        <img src="certified-devsecops-professional-cdp.png" alt="Certified DevSecOps Professional badge" width="1153" height="1153">
+                        <div>
+                            <h3>CDP</h3>
+                            <p>Certified DevSecOps Professional</p>
+                            <span>07 December 2023</span>
+                        </div>
+                    </article>
+                    <article class="cert-card">
+                        <img src="azure-fundamentals-600x600-1.png" alt="Microsoft Certified Azure Fundamentals badge" width="600" height="600">
+                        <div>
+                            <h3>Azure Fundamentals</h3>
+                            <p>Microsoft Certified</p>
+                            <span>30 April 2021</span>
+                        </div>
+                    </article>
+                    <article class="cert-card">
+                        <img src="sa_badge.png" alt="Certified SAFe 4 Agilist badge" width="220" height="220">
+                        <div>
+                            <h3>SAFe 4 Agilist</h3>
+                            <p>Scaled delivery awareness</p>
+                            <span>05 September 2018</span>
+                        </div>
+                    </article>
+                    <article class="cert-card">
+                        <img src="ccnp1.png" alt="Cisco Certified Network Professional badge" width="225" height="225">
+                        <div>
+                            <h3>CCNP</h3>
+                            <p>Cisco Certified Network Professional</p>
+                            <span>26 September 2012 - 2018</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="experience" aria-labelledby="experience-title">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Experience</p>
+                    <h2 id="experience-title">Security leadership, governance and engineering delivery</h2>
+                </div>
+                <div class="role-list">
+                    <article class="role-card">
+                        <div class="role-meta">
+                            <p class="role-date">Jan 2022 - Present</p>
+                            <h3>Head of Security</h3>
+                            <p>Mitto AG</p>
+                        </div>
+                        <div class="role-detail">
+                            <p class="scope">Leads security strategy, governance and engineering initiatives across secure AI adoption, compliance, DevSecOps, vulnerability management and cloud-native security.</p>
+                            <ul>
+                                <li>Key in introducing artificial intelligence securely into the enterprise environment, including DevOps workflows.</li>
+                                <li>Led ISO 27001, ISO 27701 and SOC 2 Type II security initiatives, supporting certification and reporting outcomes with zero critical findings.</li>
+                                <li>Built vulnerability prioritisation capability using Trivy, EPSS and KEV intelligence to reduce critical vulnerability response time from 9 days to under 24 hours.</li>
+                                <li>Embedded DevSecOps controls into CI/CD and Kubernetes environments across development, testing and production.</li>
+                                <li>Developed executive-level security reporting dashboards and shift-left security practices across the SDLC.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="role-card">
+                        <div class="role-meta">
+                            <p class="role-date">May 2018 - Dec 2021</p>
+                            <h3>Security Solutions Architect</h3>
+                            <p>Dimension Data / NTT</p>
+                        </div>
+                        <div class="role-detail">
+                            <p class="scope">Led security architecture and advisory work for enterprise clients across OT/IT, SD-WAN, cloud migration and compliance-led environments.</p>
+                            <ul>
+                                <li>Designed industrial firewall and OT/IT segmentation architectures using Purdue Model security principles.</li>
+                                <li>Architected SD-WAN security frameworks for multinational environments with standardised security policies.</li>
+                                <li>Developed secure cloud migration reference architectures using compliance controls, CSPM and IAM frameworks.</li>
+                                <li>Built security control matrices bridging IT and OT environments.</li>
+                                <li>Led security workshops with senior stakeholders, translating architecture decisions into business value and risk reduction.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="role-card">
+                        <div class="role-meta">
+                            <p class="role-date">Jan 2013 - May 2018</p>
+                            <h3>Security Engineer L3</h3>
+                            <p>Dimension Data</p>
+                        </div>
+                        <div class="role-detail">
+                            <p class="scope">Led senior security engineering delivery for enterprise MSSP clients across financial, healthcare and manufacturing sectors.</p>
+                            <ul>
+                                <li>Led technical teams of 5+ engineers, improving delivery standards, mentoring capability and team morale.</li>
+                                <li>Managed security operations across 100+ network security devices including firewalls, WAFs, proxies and IPS platforms.</li>
+                                <li>Oversaw enterprise PKI infrastructure with 99.999% availability.</li>
+                                <li>Led disaster recovery testing for mission-critical environments, achieving 100% recovery success and reducing RTO/RPO by 60%.</li>
+                                <li>Supported high-severity incident response and remediation across enterprise client environments.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="role-card">
+                        <div class="role-meta">
+                            <p class="role-date">Jul 2004 - Dec 2012</p>
+                            <h3>Network Engineer</h3>
+                            <p>The McGraw-Hill Companies</p>
+                        </div>
+                        <div class="role-detail">
+                            <p class="scope">Managed EMEA network infrastructure and enterprise networking projects supporting the transition into security engineering leadership.</p>
+                            <ul>
+                                <li>Supported 12+ European office locations as a primary technical networking resource.</li>
+                                <li>Led routing, switching and infrastructure refresh work across international environments.</li>
+                                <li>Delivered core Cisco Catalyst chassis switch refresh at the European head office with minimal downtime.</li>
+                                <li>Managed data centre, WAN optimisation and telephony infrastructure.</li>
+                                <li>Built the enterprise infrastructure foundation for later security engineering and architecture roles.</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section muted" id="skills" aria-labelledby="skills-title">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Capability</p>
+                    <h2 id="skills-title">Where leadership and technical depth meet</h2>
+                </div>
+                <div class="capability-grid">
+                    <article>
+                        <h3>Security Leadership & Governance</h3>
+                        <ul>
+                            <li>Security strategy and governance</li>
+                            <li>Secure adoption of artificial intelligence in enterprise and DevOps environments</li>
+                            <li>ISO 27001, ISO 27701, NIST CSF, PCI DSS, CIS and SOC 2</li>
+                            <li>Privacy and compliance-led security initiatives</li>
                             <li>Enterprise security posture management</li>
+                            <li>Stakeholder management and security workshops</li>
                         </ul>
-                    </div>
+                    </article>
+                    <article>
+                        <h3>DevSecOps & Cloud Security</h3>
+                        <ul>
+                            <li>DevOps and DevSecOps security</li>
+                            <li>Cloud architecture with Azure</li>
+                            <li>CI/CD security with Azure DevOps</li>
+                            <li>Kubernetes, Docker and container security</li>
+                            <li>Terraform and infrastructure as code</li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3>Security Engineering</h3>
+                        <ul>
+                            <li>Vulnerability management and prioritisation</li>
+                            <li>Identity management and PKI</li>
+                            <li>Multi-vendor firewalls, WAFs and proxies</li>
+                            <li>Python automation and security tooling</li>
+                            <li>SIEM platforms including Splunk and FortiSIEM</li>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3>Enterprise & Industrial Security</h3>
+                        <ul>
+                            <li>Security architecture design</li>
+                            <li>Purdue Model and ISA/IEC 62443 awareness</li>
+                            <li>OT/IT segmentation and industrial firewalls</li>
+                            <li>Secure cloud migration patterns</li>
+                            <li>Proof of concept to deployment lifecycle</li>
+                        </ul>
+                    </article>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Certificates Section -->
-            <section class="section" id="certificates">
-                <h2 class="section-title">
-                    <i class="fas fa-certificate"></i> Certifications
-                </h2>
-                <div class="cert-container">
-                    <div class="cert-card">
-                        <div class="cert-header">
-                            <img src="cissp2.png" alt="CISSP" class="cert-icon">
-                        </div>
-                        <div class="cert-content">
-                            <div class="cert-name">Certified Information Systems Security Professional (CISSP)</div>
-                            <div class="cert-info">Membership ID: 727693</div>
-                            <div class="cert-date">01 March 2020</div>
-                        </div>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-header">
-                            <img src="ccnp1.png" alt="CCNP" class="cert-icon">
-                        </div>
-                        <div class="cert-content">
-                            <div class="cert-name">Cisco Certified Network Professional (CCNP)</div>
-                            <div class="cert-info">Membership ID: CSCO1179107</div>
-                            <div class="cert-date">26 September 2012 - 2018</div>
-                        </div>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-header">
-                            <img src="sa_badge.png" alt="SAFe" class="cert-icon">
-                        </div>
-                        <div class="cert-content">
-                            <div class="cert-name">Certified SAFe® 4 Agilist</div>
-                            <div class="cert-date">05 September 2018</div>
-                        </div>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-header">
-                            <img src="azure-fundamentals-600x600-1.png" alt="Azure" class="cert-icon">
-                        </div>
-                        <div class="cert-content">
-                            <div class="cert-name">Microsoft Certified: Azure Fundamentals</div>
-                            <div class="cert-info">991331460</div>
-                            <div class="cert-date">30 April 2021</div>
-                        </div>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-header">
-                            <img src="certified-devsecops-professional-cdp.png" alt="DevSecOps" class="cert-icon">
-                        </div>
-                        <div class="cert-content">
-                            <div class="cert-name">Certified DevSecOps Professional (CDP)</div>
-                            <div class="cert-info">CDP19CBBFA9</div>
-                            <div class="cert-date">07 December 2023</div>
-                        </div>
-                    </div>
-                    <div class="cert-card">
-                        <div class="cert-header">
-                            <img src="CKA.png" alt="Kubernetes" class="cert-icon">
-                        </div>
-                        <div class="cert-content">
-                            <div class="cert-name">Certified Kubernetes Administrator (CKA)</div>
-                            <div class="cert-info">LF-chzsne1lp8</div>
-                            <div class="cert-date">16 November 2024</div>
-                        </div>
-                    </div>
+        <section class="section" id="memberships" aria-labelledby="memberships-title">
+            <div class="container narrow">
+                <div class="section-heading">
+                    <p class="eyebrow">Professional contribution</p>
+                    <h2 id="memberships-title">Advisory membership</h2>
                 </div>
-            </section>
+                <article class="membership-card">
+                    <p class="role-date">May 2018 - Jan 2022</p>
+                    <h3>Advisory Board Member</h3>
+                    <p>Centre for Research in Information and Cyber Security (CRICS) and the School of ICT, Nelson Mandela University</p>
+                    <p>Guided and mentored the next generation of cybersecurity professionals through advisory board involvement.</p>
+                </article>
+            </div>
+        </section>
 
-            <!-- Courses Section -->
-            <section class="section" id="courses">
-                <h2 class="section-title">
-                    <i class="fas fa-graduation-cap"></i> Professional Development
-                </h2>
-				
-                <div class="pd-container">
-                    <!-- 2025 -->
-                    <div class="pd-year">
-                        <h3 class="pd-year-title">2025</h3>
-                        <div class="pd-year-line"></div>
-                        <div class="pd-cards">
-                            <div class="pd-card certified">
-                                <div class="pd-card-inner">
-                                    <div class="pd-card-icon">
-                                        <i class="fas fa-award"></i>
-                                    </div>
-                                    <div class="pd-card-date">October 2025</div>
-                                    <h4 class="pd-card-title">Terraform 101: The Ultimate Hands-On Guide [Azure Edition]</h4>
-                                    <div class="pd-card-provider">
-                                        <i class="fas fa-university"></i> Udemy
-                                    </div>
-                                    <div class="pd-card-tags">
-                                        <span class="pd-card-tag">Terraform</span>
-                                        <span class="pd-card-tag">Administration</span>
-                                        <span class="pd-card-tag">Cloud</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-					
-                <div class="pd-container">
-                    <!-- 2024 -->
-                    <div class="pd-year">
-                        <h3 class="pd-year-title">2024</h3>
-                        <div class="pd-year-line"></div>
-                        <div class="pd-cards">
-                            <div class="pd-card certified">
-                                <div class="pd-card-inner">
-                                    <div class="pd-card-icon">
-                                        <i class="fas fa-award"></i>
-                                    </div>
-                                    <div class="pd-card-date">August 2024</div>
-                                    <h4 class="pd-card-title">Prepare for the Certified Kubernetes Administrators Certification</h4>
-                                    <div class="pd-card-provider">
-                                        <i class="fas fa-university"></i> Udemy
-                                    </div>
-                                    <div class="pd-card-certified">
-                                        <i class="fas fa-check-circle"></i> Certified
-                                    </div>
-                                    <div class="pd-card-tags">
-                                        <span class="pd-card-tag">Kubernetes</span>
-                                        <span class="pd-card-tag">Administration</span>
-                                        <span class="pd-card-tag">Cloud</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- 2023 -->
-                    <div class="pd-year">
-                        <h3 class="pd-year-title">2023</h3>
-                        <div class="pd-year-line"></div>
-                        <div class="pd-cards">
-                            <div class="pd-card certified">
-                                <div class="pd-card-inner">
-                                    <div class="pd-card-icon">
-                                        <i class="fas fa-award"></i>
-                                    </div>
-                                    <div class="pd-card-date">December 2023</div>
-                                    <h4 class="pd-card-title">Certified DevSecOps Professional</h4>
-                                    <div class="pd-card-provider">
-                                        <i class="fas fa-university"></i> Practical DevSecOps
-                                    </div>
-                                    <div class="pd-card-certified">
-                                        <i class="fas fa-check-circle"></i> Certified
-                                    </div>
-                                    <div class="pd-card-tags">
-                                        <span class="pd-card-tag">DevSecOps</span>
-                                        <span class="pd-card-tag">Security</span>
-                                        <span class="pd-card-tag">CI/CD</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="pd-card">
-                                <div class="pd-card-inner">
-                                    <div class="pd-card-icon">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                    <div class="pd-card-date">July 2023</div>
-                                    <h4 class="pd-card-title">DevSecOps: Integrating Security into DevOps</h4>
-                                    <div class="pd-card-provider">
-                                        <i class="fas fa-university"></i> (ISC)²
-                                    </div>
-                                    <div class="pd-card-tags">
-                                        <span class="pd-card-tag">DevSecOps</span>
-                                        <span class="pd-card-tag">Security</span>
-                                        <span class="pd-card-tag">Integration</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="pd-card">
-                                <div class="pd-card-inner">
-                                    <div class="pd-card-icon">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                    <div class="pd-card-date">July 2023</div>
-                                    <h4 class="pd-card-title">Git Going Fast: One Hour Git Crash Course</h4>
-                                    <div class="pd-card-provider">
-                                        <i class="fas fa-university"></i> Udemy
-                                    </div>
-                                    <div class="pd-card-tags">
-                                        <span class="pd-card-tag">Git</span>
-                                        <span class="pd-card-tag">Version Control</span>
-                                        <span class="pd-card-tag">Development</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="pd-card">
-                                <div class="pd-card-inner">
-                                    <div class="pd-card-icon">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                    <div class="pd-card-date">June 2023</div>
-                                    <h4 class="pd-card-title">Docker & Kubernetes: The Practical Guide [2023 Edition]</h4>
-                                    <div class="pd-card-provider">
-                                        <i class="fas fa-university"></i> Udemy
-                                    </div>
-                                    <div class="pd-card-tags">
-                                        <span class="pd-card-tag">Docker</span>
-                                        <span class="pd-card-tag">Kubernetes</span>
-                                        <span class="pd-card-tag">Containers</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="pd-card">
-                                <div class="pd-card-inner">
-                                    <div class="pd-card-icon">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                    <div class="pd-card-date">March 2023</div>
-                                    <h4 class="pd-card-title">ISO/IEC 27701:2019 - Privacy Information Management System</h4>
-                                    <div class="pd-card-provider">
-                                        <i class="fas fa-university"></i> Udemy
-                                    </div>
-                                    <div class="pd-card-tags">
-                                        <span class="pd-card-tag">ISO</span>
-                                        <span class="pd-card-tag">Privacy</span>
-                                        <span class="pd-card-tag">Compliance</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- 2022 -->
-                    <div class="pd-year">
-                        <h3 class="pd-year-title">2022</h3>
-                        <div class="pd-year-line"></div>
-                        <div class="pd-cards">
-                            <div class="pd-card">
-                                <div class="pd-card-inner">
-                                    <div class="pd-card-icon">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                    <div class="pd-card-date">April 2022</div>
-                                    <h4 class="pd-card-title">Lacework Fundamentals for Security Practitioners</h4>
-                                    <div class="pd-card-provider">
-                                        <i class="fas fa-university"></i> Lacework
-                                    </div>
-                                    <div class="pd-card-tags">
-                                        <span class="pd-card-tag">Security</span>
-                                        <span class="pd-card-tag">Cloud</span>
-                                        <span class="pd-card-tag">Monitoring</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="pd-card">
-                                <div class="pd-card-inner">
-                                    <div class="pd-card-icon">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                    <div class="pd-card-date">February 2022</div>
-                                    <h4 class="pd-card-title">Python for Absolute Beginners | Python Beginner to Pro 2021</h4>
-                                    <div class="pd-card-provider">
-                                        <i class="fas fa-university"></i> Udemy
-                                    </div>
-                                    <div class="pd-card-tags">
-                                        <span class="pd-card-tag">Python</span>
-                                        <span class="pd-card-tag">Programming</span>
-                                        <span class="pd-card-tag">Development</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- 2021 -->
-                    <div class="pd-year">
-                        <h3 class="pd-year-title">2021</h3>
-                        <div class="pd-year-line"></div>
-                        <div class="pd-cards">
-                            <div class="pd-card">
-                                <div class="pd-card-inner">
-                                    <div class="pd-card-icon">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                    <div class="pd-card-date">September 2021</div>
-                                    <h4 class="pd-card-title">CISO's Guide to Success</h4>
-                                    <div class="pd-card-provider">
-                                        <i class="fas fa-university"></i> (ISC)² Professional Development Institute
-                                    </div>
-                                    <div class="pd-card-tags">
-                                        <span class="pd-card-tag">Leadership</span>
-                                        <span class="pd-card-tag">Security</span>
-                                        <span class="pd-card-tag">Management</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="pd-card">
-                                <div class="pd-card-inner">
-                                    <div class="pd-card-icon">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                    <div class="pd-card-date">September 2021</div>
-                                    <h4 class="pd-card-title">Introduction to Kubernetes and Intersight Kubernetes Services</h4>
-                                    <div class="pd-card-provider">
-                                        <i class="fas fa-university"></i> Cisco
-                                    </div>
-                                    <div class="pd-card-tags">
-                                        <span class="pd-card-tag">Kubernetes</span>
-                                        <span class="pd-card-tag">Cisco</span>
-                                        <span class="pd-card-tag">Cloud</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="pd-card">
-                                <div class="pd-card-inner">
-                                    <div class="pd-card-icon">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                    <div class="pd-card-date">July 2021</div>
-                                    <h4 class="pd-card-title">Web Security and the OWASP Top 10</h4>
-                                    <div class="pd-card-provider">
-                                        <i class="fas fa-university"></i> Troy Hunt
-                                    </div>
-                                    <div class="pd-card-tags">
-                                        <span class="pd-card-tag">OWASP</span>
-                                        <span class="pd-card-tag">Web Security</span>
-                                        <span class="pd-card-tag">Vulnerabilities</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="pd-card certified">
-                                <div class="pd-card-inner">
-                                    <div class="pd-card-icon">
-                                        <i class="fas fa-award"></i>
-                                    </div>
-                                    <div class="pd-card-date">April 2021</div>
-                                    <h4 class="pd-card-title">Microsoft Certified: AZ-900 Azure Fundamentals</h4>
-                                    <div class="pd-card-provider">
-                                        <i class="fas fa-university"></i> Microsoft
-                                    </div>
-                                    <div class="pd-card-certified">
-                                        <i class="fas fa-check-circle"></i> Certified
-                                    </div>
-                                    <div class="pd-card-tags">
-                                        <span class="pd-card-tag">Azure</span>
-                                        <span class="pd-card-tag">Cloud</span>
-                                        <span class="pd-card-tag">Microsoft</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="pd-card">
-                                <div class="pd-card-inner">
-                                    <div class="pd-card-icon">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                    <div class="pd-card-date">March 2021</div>
-                                    <h4 class="pd-card-title">Self Study Azure Fundamentals</h4>
-                                    <div class="pd-card-provider">
-                                        <i class="fas fa-university"></i> Microsoft
-                                    </div>
-                                    <div class="pd-card-tags">
-                                        <span class="pd-card-tag">Azure</span>
-                                        <span class="pd-card-tag">Cloud</span>
-                                        <span class="pd-card-tag">Fundamentals</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="pd-card">
-                                <div class="pd-card-inner">
-                                    <div class="pd-card-icon">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                    <div class="pd-card-date">February 2021</div>
-                                    <h4 class="pd-card-title">Creating a Comprehensive Security Fabric v6.4</h4>
-                                    <div class="pd-card-provider">
-                                        <i class="fas fa-university"></i> Fortinet
-                                    </div>
-                                    <div class="pd-card-tags">
-                                        <span class="pd-card-tag">Security</span>
-                                        <span class="pd-card-tag">Fortinet</span>
-                                        <span class="pd-card-tag">Firewall</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="pd-card">
-                                <div class="pd-card-inner">
-                                    <div class="pd-card-icon">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                    <div class="pd-card-date">January 2021</div>
-                                    <h4 class="pd-card-title">FortiSIEM - Advanced Analytics 5.2</h4>
-                                    <div class="pd-card-provider">
-                                        <i class="fas fa-university"></i> Fortinet
-                                    </div>
-                                    <div class="pd-card-tags">
-                                        <span class="pd-card-tag">SIEM</span>
-                                        <span class="pd-card-tag">Analytics</span>
-                                        <span class="pd-card-tag">Monitoring</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- 2020 -->
-                    <div class="pd-year">
-                        <h3 class="pd-year-title">2020</h3>
-                        <div class="pd-year-line"></div>
-                        <div class="pd-cards">
-                            <div class="pd-card">
-                                <div class="pd-card-inner">
-                                    <div class="pd-card-icon">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                    <div class="pd-card-date">December 2020</div>
-                                    <h4 class="pd-card-title">Communicating with the C-Suite</h4>
-                                    <div class="pd-card-provider">
-                                        <i class="fas fa-university"></i> Professional Development
-                                    </div>
-                                    <div class="pd-card-tags">
-                                        <span class="pd-card-tag">Communication</span>
-                                        <span class="pd-card-tag">Leadership</span>
-                                        <span class="pd-card-tag">Management</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="pd-card">
-                                <div class="pd-card-inner">
-                                    <div class="pd-card-icon">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                    <div class="pd-card-date">May 2020</div>
-                                    <h4 class="pd-card-title">Securing Containers at the Speed of DevOps</h4>
-                                    <div class="pd-card-provider">
-                                        <i class="fas fa-university"></i> Professional Development
-                                    </div>
-                                    <div class="pd-card-tags">
-                                        <span class="pd-card-tag">Containers</span>
-                                        <span class="pd-card-tag">DevOps</span>
-                                        <span class="pd-card-tag">Security</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="pd-card">
-                                <div class="pd-card-inner">
-                                    <div class="pd-card-icon">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                    <div class="pd-card-date">March 2020</div>
-                                    <h4 class="pd-card-title">Introduction to the NIST Cybersecurity Framework</h4>
-                                    <div class="pd-card-provider">
-                                        <i class="fas fa-university"></i> Professional Development
-                                    </div>
-                                    <div class="pd-card-tags">
-                                        <span class="pd-card-tag">NIST</span>
-                                        <span class="pd-card-tag">Framework</span>
-                                        <span class="pd-card-tag">Compliance</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- 2019 -->
-                    <div class="pd-year">
-                        <h3 class="pd-year-title">2019</h3>
-                        <div class="pd-year-line"></div>
-                        <div class="pd-cards">
-                            <div class="pd-card certified">
-                                <div class="pd-card-inner">
-                                    <div class="pd-card-icon">
-                                        <i class="fas fa-award"></i>
-                                    </div>
-                                    <div class="pd-card-date">Aug-Dec 2019</div>
-                                    <h4 class="pd-card-title">Certified Information Systems Security Professional</h4>
-                                    <div class="pd-card-provider">
-                                        <i class="fas fa-university"></i> (ISC)²
-                                    </div>
-                                    <div class="pd-card-certified">
-                                        <i class="fas fa-check-circle"></i> Certified
-                                    </div>
-                                    <div class="pd-card-tags">
-                                        <span class="pd-card-tag">CISSP</span>
-                                        <span class="pd-card-tag">Security</span>
-                                        <span class="pd-card-tag">Certification</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="pd-card">
-                                <div class="pd-card-inner">
-                                    <div class="pd-card-icon">
-                                        <i class="fas fa-book"></i>
-                                    </div>
-                                    <div class="pd-card-date">November 2019</div>
-                                    <h4 class="pd-card-title">Risk Assessment and Management</h4>
-                                    <div class="pd-card-provider">
-                                        <i class="fas fa-university"></i> Professional Development
-                                    </div>
-                                    <div class="pd-card-tags">
-                                        <span class="pd-card-tag">Risk</span>
-                                        <span class="pd-card-tag">Management</span>
-                                        <span class="pd-card-tag">Assessment</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <section class="section muted" id="development" aria-labelledby="development-title">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Selected professional development</p>
+                    <h2 id="development-title">Recent and leadership-relevant development</h2>
                 </div>
-            </section>
-        </div>
+                <div class="development-grid">
+                    <article>
+                        <span>2025</span>
+                        <h3>Terraform 101: The Ultimate Hands-On Guide [Azure Edition]</h3>
+                        <p>Udemy</p>
+                    </article>
+                    <article>
+                        <span>2024</span>
+                        <h3>Prepare for the Certified Kubernetes Administrator Certification</h3>
+                        <p>Udemy</p>
+                    </article>
+                    <article>
+                        <span>2023</span>
+                        <h3>Certified DevSecOps Professional</h3>
+                        <p>Practical DevSecOps</p>
+                    </article>
+                    <article>
+                        <span>2023</span>
+                        <h3>ISO/IEC 27701:2019 - Privacy Information Management System</h3>
+                        <p>Udemy</p>
+                    </article>
+                    <article>
+                        <span>2021</span>
+                        <h3>CISO's Guide to Success</h3>
+                        <p>(ISC)2 Professional Development Institute</p>
+                    </article>
+                    <article>
+                        <span>2020</span>
+                        <h3>Communicating with the C-Suite</h3>
+                        <p>Professional Development</p>
+                    </article>
+                    <article>
+                        <span>2020</span>
+                        <h3>Introduction to the NIST Cybersecurity Framework</h3>
+                        <p>Professional Development</p>
+                    </article>
+                    <article>
+                        <span>2019</span>
+                        <h3>Risk Assessment and Management</h3>
+                        <p>Professional Development</p>
+                    </article>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Quote Section -->
-    <section class="quote-section">
-        <div class="container">
-            <div class="quote">
-                As cybersecurity leaders, we have to create our message of influence because security is a culture and you need the business to take place and be part of that security culture.
+    <footer class="site-footer" id="contact">
+        <div class="container footer-content">
+            <div>
+                <h2>Nick Hall</h2>
+                <p>Head of Security with experience across security strategy, governance, DevSecOps, cloud security and privacy-led compliance.</p>
             </div>
-            <div class="quote-author">- Britney Hommertzheim</div>
+            <nav class="footer-links" aria-label="Professional links">
+                <a href="https://www.linkedin.com/in/nichall" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/nick-github-sa" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://hub.docker.com/u/nicksdockerhub" target="_blank" rel="noopener noreferrer">DockerHub</a>
+                <a href="Nick-Hall-CV.pdf">Download CV</a>
+            </nav>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer" id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h3 class="footer-title">Nick Hall</h3>
-                    <p class="footer-text">Experienced Cybersecurity Specialist committed to ensuring the highest standards of security while delivering optimal results.</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/nichall" class="social-link" target="_blank">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/nick-github-sa" class="social-link" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://hub.docker.com/u/nicksdockerhub" class="social-link" target="_blank">
-                            <i class="fab fa-docker"></i>
-                        </a>
-                        <a href="https://www.facebook.com/kcinhall" class="social-link" target="_blank">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://www.instagram.com/kcinhall/" class="social-link" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-nav">
-                    <h4 class="footer-nav-title">Quick Links</h4>
-                    <div class="footer-nav-links">
-                        <a href="#experience" class="footer-nav-link">
-                            <i class="fas fa-chevron-right"></i> Experience
-                        </a>
-                        <a href="#skills" class="footer-nav-link">
-                            <i class="fas fa-chevron-right"></i> Skills
-                        </a>
-                        <a href="#certificates" class="footer-nav-link">
-                            <i class="fas fa-chevron-right"></i> Certificates
-                        </a>
-                        <a href="#courses" class="footer-nav-link">
-                            <i class="fas fa-chevron-right"></i> Courses
-                        </a>
-                        <a href="Nick-Hall-CV.pdf" class="footer-nav-link">
-                            <i class="fas fa-chevron-right"></i> Download CV
-                        </a>
-                        <a href="#contact" class="footer-nav-link">
-                            <i class="fas fa-chevron-right"></i> Contact
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="copyright">
-                    &copy; 2026 Nick Hall. All rights reserved.
-                </div>
-            </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Nick Hall. All rights reserved.</p>
         </div>
     </footer>
 </body>
 </html>
-
